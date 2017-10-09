@@ -1,19 +1,16 @@
 #!/bin/bash
-arr=( $@ )
+num=( $@ )
 for ((i=0;i<$#;i++))
-do
-	let max=${arr[$i]}
-	for((j=($i+1);j<$#;j++))
+do	
+	for((j=($i);j<$#;j++))
 	do
-		if [ $max -ge ${arr[$j]} ]
+		if [ ${num[$i]} -gt ${num[$j]} ]
 		then
-			let a=$max
-			let max=${arr[$j]}
-			let b=$j
+			t=${num[$i]}
+			num[$i]=${num[$j]}
+			num[$j]=$t
 		fi
 	done
-	let arr[$b]=${arr[$i]}
-	let arr[$i]=$max
+	echo -n "${num[$i]} "
 done
-	echo -n ${arr[*]}
 echo

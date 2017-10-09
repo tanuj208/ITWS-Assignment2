@@ -6,7 +6,7 @@ then
 elif [ -f $1 ]
 # if file exists and it is a regular file
 then
-	chmod +x $1
+	chmod u+x $1
 else
 	echo Regular file named $1 does not exist
 fi
